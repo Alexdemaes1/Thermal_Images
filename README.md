@@ -1,62 +1,31 @@
-# Diagnóstico precoz de cáncer de mama mediante termografía y aprendizaje profundo
+# Diagnóstico precoz de cáncer mediante aprendizaje profundo y termografía
 
-## 🩺 Contexto
+## Introducción
 
-El cáncer es uno de los principales problemas de salud pública a nivel mundial, siendo una de las principales causas de mortalidad. En particular, el cáncer de cérvix y el cáncer de mama requieren estrategias eficaces de **detección temprana** para reducir la mortalidad y mejorar la efectividad de los tratamientos.
+El cáncer es un problema importante de salud pública, ya que se ha convertido en una de las principales causas de muerte a nivel mundial. Clínicamente las técnicas más comúnmente usadas para una detección temprana de cáncer de cérvix y de mama son la colposcopía y la radiografía, específicamente imágenes de ultrasonido y mamografía. 
 
-Las técnicas más utilizadas actualmente para el diagnóstico precoz incluyen la **colposcopía**, la **ecografía** y la **mamografía**. Sin embargo, la **termografía** está ganando protagonismo como técnica de detección por ser **no invasiva**, **no radioactiva**, de **bajo coste** y con **alta precisión**, especialmente útil en mujeres jóvenes. Su uso contribuye a reducir biopsias innecesarias y a disminuir la tasa de mortalidad por cáncer de mama.
+Sin embargo, en la actualidad se está usando la técnica de termografía por ser no invasiva, no radioactiva, de bajo costo y alta precisión de resultados en mujeres jóvenes, reduciendo de esta manera las biopsias innecesarias y disminuyendo la tasa de mortalidad por cáncer de mama.
 
----
+## Motivación
 
-## 🧠 Motivación
+Para ello, como un apoyo para el análisis de estos datos, varios algoritmos de inteligencia artificial (_IA_) y sistemas computacionales asistidos (_CAD_), especialmente basados en aprendizaje profundo (_DL_), están siendo usados como técnicas de procesamiento de imágenes médicas para la detección tumoral en una etapa temprana por su mayor precisión en los resultados alcanzados.
 
-Para apoyar el análisis de imágenes médicas, se están aplicando técnicas de **inteligencia artificial (IA)**, particularmente algoritmos de **aprendizaje profundo (deep learning, DL)**, dentro de sistemas de **diagnóstico asistido por ordenador (CAD)**. Estas herramientas permiten detectar tumores en etapas más tempranas y con mayor precisión.
+Varios estudios han reportado que el uso de algoritmos basados en aprendizaje profundo (_DL_), especialmente las redes neuronales convolucionales (_CNN_), están siendo entrenadas con imágenes médicas, ayudando a mejorar la precisión en la clasificación de lesiones y por tanto la precisión del diagnóstico médico.
 
-En especial, las **redes neuronales convolucionales (CNNs)** entrenadas con imágenes médicas han demostrado mejorar la precisión en la **clasificación de lesiones** y, por tanto, en el diagnóstico clínico. Sin embargo, su eficacia depende de la disponibilidad de **grandes volúmenes de datos**, y el acceso limitado a bases de datos médicas sigue siendo un reto importante en biomedicina.
+Sin embargo, su entrenamiento requiere grandes cantidades de información, y la falta de acceso a las bases de datos médicos sigue siendo un problema y una tarea desafiante en la biomedicina. Esto genera cierta incapacidad para lograr un buen porcentaje en la precisión y rendimiento de un _CAD_ basado en _DL_.
 
----
+## Propuesta
 
-## 📈 Desafíos del aumento de datos
+Una posible solución a este problema es la implementación de transformaciones tradicionales para el “aumento artificial de datos” como: rotar, cortar, escalar, trasladar, agregar ruido gaussiano, entre otras técnicas, permitiendo de esta manera el aumento de la disponibilidad de datos.
 
-Una solución común ante la escasez de datos es el **aumento artificial de datos** mediante transformaciones tradicionales: rotaciones, escalados, recortes, traslaciones, ruido gaussiano, entre otras. Estas técnicas permiten aumentar la cantidad de datos disponibles, pero solo generan variantes de las imágenes originales, sin aportar nueva información significativa para el entrenamiento.
+Sin embargo, estos métodos solamente pueden incrementar imágenes con características similares a la original y no se pueden utilizar como nuevas imágenes de entrenamiento para mejorar el rendimiento de un clasificador CNN.
 
----
+Una estrategia alternativa que poco a poco va ganando terreno es la **generación de imágenes sintéticas** utilizando las características extraídas de las imágenes originales mediante métodos basados en redes convolucionales CNNs y adversariales (Generative Adversarial Networks - GANs), los cuales están siendo utilizados para un mejor entrenamiento de la red y generación de nuevas muestras, logrando una mayor precisión de los algoritmos en la clasificación y predicción y, a su vez, evitando el problema de sobreajuste de éstos.
 
-## 🧬 Nuestra propuesta: generación de imágenes sintéticas
+## Objetivo
 
-Este proyecto propone la implementación y comparación de distintas arquitecturas de **aprendizaje profundo generativo** para generar imágenes sintéticas que enriquezcan los conjuntos de datos de termografía:
+Se propone la implementación y comparación de varias arquitecturas de aprendizaje profundo, como por ejemplo **Cycle-GAN, SNGAN, Condicional GAN y/o WGAN**, para el aumento de imágenes de termografía con el objetivo de mejorar la detección, segmentación y clasificación de lesiones tumorales mamarias dentro de un sistema computacional asistido.
 
-- `CycleGAN`
-- `SNGAN`
-- `Conditional GAN`
-- `WGAN`
+## Relevancia clínica
 
-El objetivo es mejorar la:
-
-- **Detección** de lesiones
-- **Segmentación** de tumores
-- **Clasificación** de anomalías
-
-Estas técnicas permiten entrenar redes más robustas, reducir el **sobreajuste** y mejorar el rendimiento general de los sistemas CAD.
-
----
-
-## 🎯 Objetivos del proyecto
-
-- Diseñar y evaluar modelos de aprendizaje profundo para el **aumento de imágenes termográficas**.
-- Integrar los modelos en un sistema de diagnóstico asistido para la **detección precoz de cáncer de mama**.
-- Contribuir a reducir la mortalidad y los costes médicos mediante herramientas **no invasivas y basadas en IA**.
-
----
-
-## ⚕️ Relevancia clínica
-
-Dada la alta prevalencia y complejidad del cáncer de mama, avanzar en el conocimiento de su **fisiopatología** y desarrollar herramientas para un diagnóstico más temprano es clave para:
-
-- Aumentar las tasas de éxito terapéutico
-- Iniciar tratamientos con mayor anticipación
-- Reducir los costes asociados al cuidado médico
-
-Este proyecto busca aportar a ese objetivo mediante el uso de la **termografía y el aprendizaje profundo** como herramientas de apoyo en el diagnóstico clínico.
-
----
+Dada la complejidad y la elevada prevalencia de estas enfermedades, un mayor entendimiento de la fisiopatología, así como un diagnóstico más precoz resultan de vital importancia para aumentar la tasa de éxito de las terapias y reducir el porcentaje de mortalidad a causa de este tipo de cáncer, con un menor coste médico.
